@@ -5,14 +5,16 @@
 
 import { SystemService, Project, CompanyStat, Brand } from './types';
 
+const publicPath = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 // Exact generated image asset paths from our image-generation runs
 export const ASSET_PATHS = {
-  heroChiller: '/src/assets/images/hero_dubai_chiller_1779714256893.png',
-  aboutTechnicians: '/src/assets/images/about_technicians_1779714281307.png',
-  aboutDuctwork: '/src/assets/images/about_ductwork_1779714306648.png',
-  projectOffice: '/src/assets/images/project_office_1779714329550.png',
-  projectVilla: '/src/assets/images/project_villa_1779714355444.png',
-  contactPipesBg: '/src/assets/images/contact_pipes_bg_1779714379116.png',
+  heroChiller: publicPath('assets/images/hero_dubai_chiller_1779714256893.png'),
+  aboutTechnicians: publicPath('assets/images/about_technicians_1779714281307.png'),
+  aboutDuctwork: publicPath('assets/images/about_ductwork_1779714306648.png'),
+  projectOffice: publicPath('assets/images/project_office_1779714329550.png'),
+  projectVilla: publicPath('assets/images/project_villa_1779714355444.png'),
+  contactPipesBg: publicPath('assets/images/contact_pipes_bg_1779714379116.png'),
   
   // High-quality placeholder fallbacks for other gallery items to ensure zero-broken links
   projectWarehouse: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80', // Beautiful modern warehouse with structure

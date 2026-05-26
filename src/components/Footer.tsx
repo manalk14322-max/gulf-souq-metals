@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 min-w-0">
               <div className="w-11 h-11 rounded-full bg-white border border-slate-800 overflow-hidden flex items-center justify-center">
                 <img
-                  src="/gulf-souq-metals-logo.jpeg"
+                  src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
                   alt="Gulf Souq Metals logo"
                   className="w-full h-full object-cover"
                 />
