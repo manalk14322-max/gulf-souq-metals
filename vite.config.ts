@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/gulf-souq-metals/',
+    base: '/gulf-breeze-ac-ducting/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
