@@ -7,7 +7,7 @@ import { BRANDS } from '../data';
 
 export default function BrandsSection() {
   return (
-    <section className="bg-slate-50 py-10 border-y border-slate-100 overflow-hidden relative" id="brands-ticker-bar">
+    <section className="bg-slate-50 py-8 sm:py-10 border-y border-slate-100 overflow-hidden relative" id="brands-ticker-bar">
       
       {/* Title */}
       <div className="max-w-7xl mx-auto px-4 text-center mb-6">
@@ -16,11 +16,21 @@ export default function BrandsSection() {
         </p>
       </div>
 
+      <div className="grid grid-cols-2 gap-4 px-4 sm:hidden">
+        {BRANDS.slice(0, 6).map((brand) => (
+          <div key={brand.name} className="rounded-xl bg-white border border-slate-100 px-3 py-3 text-center shadow-sm">
+            <span className="text-[11px] font-black uppercase tracking-wider text-slate-700">
+              {brand.name}
+            </span>
+          </div>
+        ))}
+      </div>
+
       {/* Infinite loop marquee simulator */}
-      <div className="relative flex overflow-x-hidden">
+      <div className="relative hidden sm:flex overflow-x-hidden">
         
         {/* Row wrapper */}
-        <div className="flex gap-16 md:gap-24 items-center animate-marquee whitespace-nowrap py-2 shrink-0">
+        <div className="flex gap-12 md:gap-24 items-center animate-marquee whitespace-nowrap py-2 shrink-0">
           {BRANDS.map((brand, idx) => (
             <div 
               key={idx} 
@@ -45,7 +55,7 @@ export default function BrandsSection() {
         </div>
 
         {/* Second duplicated row wrapper to ensure full screen width without breaks */}
-        <div className="flex gap-16 md:gap-24 items-center animate-marquee whitespace-nowrap py-2 shrink-0 ml-16 md:ml-24" aria-hidden="true">
+        <div className="flex gap-12 md:gap-24 items-center animate-marquee whitespace-nowrap py-2 shrink-0 ml-12 md:ml-24" aria-hidden="true">
           {BRANDS.map((brand, idx) => (
             <div 
               key={`dup-${idx}`} 

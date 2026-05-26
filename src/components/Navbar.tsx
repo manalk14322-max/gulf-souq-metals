@@ -26,6 +26,13 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const navLinks = [
     { label: 'Home', href: '#/' },
     { label: 'About Us', href: '#/about' },
@@ -96,7 +103,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
-              aria-expanded="false"
+              aria-expanded={isOpen}
               id="mobile-menu-toggle-btn"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -107,13 +114,21 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       </div>
 
       {/* Mobile Drawer menu */}
+      <button
+        type="button"
+        aria-label="Close menu backdrop"
+        onClick={() => setIsOpen(false)}
+        className={`lg:hidden fixed inset-0 top-[86px] z-40 bg-slate-950/35 backdrop-blur-[2px] transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      />
       <div 
-        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-[86vw] max-w-xs bg-white shadow-2xl p-5 sm:p-6 transition-transform duration-350 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`lg:hidden fixed left-3 right-3 top-[86px] z-50 rounded-3xl bg-white shadow-2xl border border-slate-100 p-5 transition-all duration-300 ease-out ${
+          isOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-5 opacity-0 pointer-events-none'
         }`}
         id="mobile-drawer-menu"
       >
-        <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-4">
           <div className="flex items-center gap-2">
             <div className="premium-logo w-10 h-10 rounded-full bg-white border border-slate-200 overflow-hidden flex items-center justify-center">
               <img
@@ -133,20 +148,20 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </button>
         </div>
 
-        <div className="py-8 flex flex-col gap-5">
+        <div className="py-5 grid grid-cols-1 gap-2">
           {navLinks.map((link, idx) => (
             <a 
               key={idx} 
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-sm font-semibold text-slate-800 hover:text-blue-600 uppercase tracking-widest pb-1 border-b border-slate-50"
+              className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-650 uppercase tracking-wider transition-colors"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="pt-6 border-t border-slate-100">
+        <div className="pt-4 border-t border-slate-100">
           <button 
             onClick={() => {
               setIsOpen(false);
