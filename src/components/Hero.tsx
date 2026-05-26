@@ -36,6 +36,8 @@ export default function Hero({ onOpenQuote }: HeroProps) {
 
   return (
     <section id="home" className="relative pt-22 sm:pt-24 lg:pt-28 bg-slate-50 overflow-hidden">
+      <div className="hero-ambient absolute -top-28 -right-20 w-72 h-72 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="hero-ambient absolute top-48 -left-24 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" style={{ animationDelay: '1.4s' }} />
       
       {/* Background visual container & Layout Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
@@ -49,7 +51,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
             
             <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl lg:text-6xl font-black text-slate-905 tracking-tight leading-tight uppercase font-sans">
               Delivering <br />
-              <span className="text-blue-650">Perfect Comfort</span> <br />
+              <span className="shine-text">Perfect Comfort</span> <br />
               Across the Gulf
             </h1>
             
@@ -60,7 +62,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <button 
                 onClick={onOpenQuote}
-                className="px-6 py-3.5 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/10 cursor-pointer"
+                className="premium-button px-6 py-3.5 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/10 cursor-pointer"
                 id="hero-free-quote-btn"
               >
                 Get Free Quote <ArrowRight className="w-4 h-4" />
@@ -68,7 +70,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
               
               <a 
                 href="#/services"
-                className="px-6 py-3.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-805 font-sans font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all"
+                className="premium-button px-6 py-3.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-805 font-sans font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all"
                 id="hero-services-scroll-btn"
               >
                 Our Services <div className="w-5 h-5 bg-slate-900 text-white rounded-full flex items-center justify-center shrink-0"><Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" /></div>
@@ -78,7 +80,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
 
           {/* Right Column (Huge overlapping image frame matching uploaded reference) */}
           <div className="lg:col-span-6 relative animate-scaleUp">
-            <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl aspect-video sm:aspect-4/3 lg:aspect-square group bg-slate-800">
+            <div className="premium-card float-soft relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl aspect-video sm:aspect-4/3 lg:aspect-square group bg-slate-800">
               <img 
                 src={ASSET_PATHS.heroChiller} 
                 alt="Gulf Breeze cooling solutions" 

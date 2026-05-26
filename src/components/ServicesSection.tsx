@@ -4,6 +4,7 @@
  */
 
 import { useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Wrench, Settings, Layers, Cpu, Wind, Sparkles, Building, FileText, ArrowRight, CheckCircle2, ChevronRight, X } from 'lucide-react';
 import { SERVICES } from '../data';
 import { SystemService } from '../types';
@@ -40,7 +41,7 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 sm:space-y-4 max-w-2xl mx-auto mb-16 animate-fadeIn" id="services-text-header">
+        <div className="text-center space-y-3 sm:space-y-4 max-w-2xl mx-auto mb-16 animate-fadeIn" id="services-text-header" data-reveal>
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-400">
             OUR TECHNICAL SERVICES
           </span>
@@ -54,11 +55,13 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
 
         {/* Services grids (8-item Grid matching uploaded dashboard exactly) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid-cards">
-          {SERVICES.map((serv) => (
+          {SERVICES.map((serv, idx) => (
             <div 
               key={serv.id}
               onClick={() => setSelectedService(serv)}
-              className="bg-[#00255a] hover:bg-[#002f70] border border-blue-950 hover:border-blue-450/40 rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 transform hover:-translate-y-1 select-none cursor-pointer group flex flex-col justify-between min-h-[210px]"
+              className="premium-card bg-[#00255a] hover:bg-[#002f70] border border-blue-950 hover:border-blue-450/40 rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 transform hover:-translate-y-1 select-none cursor-pointer group flex flex-col justify-between min-h-[210px]"
+              data-reveal
+              style={{ '--reveal-delay': `${idx * 60}ms` } as CSSProperties}
             >
               <div>
                 <div className="p-3 bg-blue-900/60 text-blue-400 rounded-xl w-fit group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
@@ -131,7 +134,7 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
                     setSelectedService(null);
                     onOpenQuote(serviceId);
                   }}
-                  className="flex-1 py-2.5 text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all flex items-center justify-center gap-2"
+                  className="premium-button flex-1 py-2.5 text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all flex items-center justify-center gap-2"
                 >
                   Request Sizing <ArrowRight className="w-3.5 h-3.5" />
                 </button>

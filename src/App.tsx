@@ -47,7 +47,7 @@ function PageHeader({
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-blue-950/70" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left" data-reveal>
         <span className="text-[10px] font-mono font-bold tracking-widest text-blue-400 uppercase">
           {eyebrow}
         </span>
@@ -81,7 +81,7 @@ function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
       <section className="py-16 sm:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+            <div className="premium-card lg:col-span-7 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden" data-reveal>
               <div className="aspect-16/9 bg-slate-900 relative overflow-hidden">
                 <img
                   src={ASSET_PATHS.contactPipesBg}
@@ -104,7 +104,7 @@ function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
                 </p>
                 <button
                   onClick={onOpenQuote}
-                  className="mt-6 px-6 py-3 bg-blue-650 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 shadow-md"
+                  className="premium-button mt-6 px-6 py-3 bg-blue-650 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 shadow-md"
                 >
                   Get Free Quote <ArrowRight className="w-4 h-4" />
                 </button>
@@ -113,7 +113,7 @@ function ContactPage({ onOpenQuote }: { onOpenQuote: () => void }) {
 
             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               {contactItems.map((item) => (
-                <div key={item.label} className="bg-white rounded-2xl border border-slate-100 p-6 text-left shadow-sm">
+                <div key={item.label} className="premium-card bg-white rounded-2xl border border-slate-100 p-6 text-left shadow-sm" data-reveal>
                   <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-650 flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
@@ -147,6 +147,31 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    const revealItems = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+
+    if (!('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, [currentPage]);
 
   const handleOpenQuote = (serviceType?: string) => {
     if (serviceType) {

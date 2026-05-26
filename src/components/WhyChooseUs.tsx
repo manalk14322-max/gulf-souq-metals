@@ -4,6 +4,7 @@
  */
 
 import { Check, ShieldCheck, ArrowRight, Play, Server, Clock } from 'lucide-react';
+import type { CSSProperties } from 'react';
 import { ASSET_PATHS } from '../data';
 
 interface WhyChooseUsProps {
@@ -26,7 +27,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
           
           {/* Left Column (Copy and checks list) */}
-          <div className="lg:col-span-6 space-y-6 text-left" id="why-us-info-box">
+          <div className="lg:col-span-6 space-y-6 text-left" id="why-us-info-box" data-reveal>
             <span className="text-[10px] font-mono font-bold tracking-widest text-[#0066cc] uppercase block">
               WHY CHOOSE US
             </span>
@@ -54,7 +55,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
             <div className="pt-4">
               <button 
                 onClick={onOpenQuote}
-                className="px-6 py-3 bg-[#0066cc] hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+                className="premium-button px-6 py-3 bg-[#0066cc] hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
                 id="why-learn-more-btn"
               >
                 Estimate Installation Sizing <ArrowRight className="w-4 h-4" />
@@ -63,7 +64,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
           </div>
 
           {/* Right Column (Double-Frame Tech display with overlapping mechanics) */}
-          <div className="lg:col-span-6 relative flex items-center justify-center">
+          <div className="lg:col-span-6 relative flex items-center justify-center" data-reveal style={{ '--reveal-delay': '140ms' } as CSSProperties}>
             
             {/* Background design elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] border border-dashed border-slate-200 aspect-square rounded-full -z-10 pointer-events-none" />
@@ -71,7 +72,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
             <div className="grid grid-cols-12 gap-4 w-full max-w-md relative z-10">
               
               {/* Overlapping Large top-left frame */}
-              <div className="col-span-12 rounded-2xl overflow-hidden border-4 border-white shadow-xl aspect-16/10 sm:aspect-16/9 bg-slate-800 group relative">
+              <div className="premium-card col-span-12 rounded-2xl overflow-hidden border-4 border-white shadow-xl aspect-16/10 sm:aspect-16/9 bg-slate-800 group relative">
                 <img 
                   src={ASSET_PATHS.contactPipesBg} 
                   alt="Industrial AC distribution headers" 
@@ -95,7 +96,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
               </div>
 
               {/* Smaller overlapping bottom-right badge frame */}
-              <div className="col-span-10 col-start-2 bg-white rounded-xl shadow-lg border border-slate-100 p-4 flex gap-4 text-left">
+              <div className="premium-card col-span-10 col-start-2 bg-white rounded-xl shadow-lg border border-slate-100 p-4 flex gap-4 text-left">
                 <div className="p-3 bg-blue-50 text-blue-650 rounded-xl shrink-0 h-fit">
                   <ShieldCheck className="w-5 h-5" />
                 </div>

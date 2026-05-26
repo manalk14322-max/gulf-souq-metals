@@ -4,6 +4,7 @@
  */
 
 import { useState } from 'react';
+import type { CSSProperties } from 'react';
 import { PROJECTS } from '../data';
 import { Project } from '../types';
 import { ArrowRight, MapPin, Eye, Building2, Wind, ShieldAlert, CheckCircle, X } from 'lucide-react';
@@ -77,7 +78,7 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" id="projects-headers">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" id="projects-headers" data-reveal>
           <div className="text-left">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600">
               OUR WORK SHOWCASE
@@ -113,11 +114,13 @@ export default function ProjectsSection() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid-items">
-            {filteredProjects.map((proj) => (
+            {filteredProjects.map((proj, idx) => (
               <div 
                 key={proj.id}
                 onClick={() => setSelectedProject(proj)}
-                className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 bg-slate-100 aspect-16/11 cursor-pointer"
+                className="premium-card group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 bg-slate-100 aspect-16/11 cursor-pointer"
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 80}ms` } as CSSProperties}
               >
                 {/* Photo frame */}
                 <img 
@@ -157,7 +160,7 @@ export default function ProjectsSection() {
         <div className="text-center mt-12">
           <a 
             href="#/contact"
-            className="px-6 py-3 bg-white hover:bg-slate-50 border border-slate-205 text-slate-800 font-sans font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 "
+            className="premium-button px-6 py-3 bg-white hover:bg-slate-50 border border-slate-205 text-slate-800 font-sans font-bold text-xs uppercase tracking-wider rounded-xl inline-flex items-center gap-2 "
             id="view-all-projects-btn"
           >
             Request Project Portfolios <ArrowRight className="w-4 h-4" />

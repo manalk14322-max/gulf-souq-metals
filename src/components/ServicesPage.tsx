@@ -17,6 +17,7 @@ import {
   Wind,
   Wrench,
 } from 'lucide-react';
+import type { CSSProperties } from 'react';
 import { ASSET_PATHS, SERVICES } from '../data';
 
 interface ServicesPageProps {
@@ -54,7 +55,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
     <div className="bg-slate-50">
       <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8" data-reveal>
             <span className="text-[10px] font-mono font-bold tracking-widest text-blue-600 uppercase">
               Our Categories
             </span>
@@ -64,13 +65,15 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-            {categoryServices.map((service) => (
+            {categoryServices.map((service, idx) => (
               <button
                 key={service.id}
                 onClick={() => onOpenQuote(service.id)}
                 className="group text-center cursor-pointer"
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 60}ms` } as CSSProperties}
               >
-                <div className="mx-auto w-20 h-20 min-[380px]:w-24 min-[380px]:h-24 sm:w-28 sm:h-28 rounded-full bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden group-hover:border-blue-300 group-hover:shadow-lg transition-all">
+                <div className="premium-card mx-auto w-20 h-20 min-[380px]:w-24 min-[380px]:h-24 sm:w-28 sm:h-28 rounded-full bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden group-hover:border-blue-300 group-hover:shadow-lg transition-all">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-50 text-blue-650 flex items-center justify-center group-hover:bg-blue-650 group-hover:text-white transition-colors">
                     {getIcon(service.iconName, 'w-7 h-7')}
                   </div>
@@ -90,7 +93,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       <section className="py-8 sm:py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="relative min-h-[250px] sm:min-h-[280px] rounded-2xl overflow-hidden bg-slate-950 text-white shadow-lg">
+            <div className="premium-card relative min-h-[250px] sm:min-h-[280px] rounded-2xl overflow-hidden bg-slate-950 text-white shadow-lg" data-reveal>
               <img
                 src={ASSET_PATHS.aboutTechnicians}
                 alt="HVAC technicians inspecting a system"
@@ -109,14 +112,14 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                 </p>
                 <button
                   onClick={() => onOpenQuote('hvac-maintenance')}
-                  className="mt-5 px-5 py-2.5 rounded-full bg-white text-slate-950 text-xs font-bold uppercase inline-flex items-center gap-2 hover:bg-blue-50"
+                  className="premium-button mt-5 px-5 py-2.5 rounded-full bg-white text-slate-950 text-xs font-bold uppercase inline-flex items-center gap-2 hover:bg-blue-50"
                 >
                   Book Now <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
-            <div className="relative min-h-[250px] sm:min-h-[280px] rounded-2xl overflow-hidden bg-blue-950 text-white shadow-lg">
+            <div className="premium-card relative min-h-[250px] sm:min-h-[280px] rounded-2xl overflow-hidden bg-blue-950 text-white shadow-lg" data-reveal style={{ '--reveal-delay': '120ms' } as CSSProperties}>
               <img
                 src={ASSET_PATHS.heroChiller}
                 alt="Commercial chiller system"
@@ -135,7 +138,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                 </p>
                 <button
                   onClick={() => onOpenQuote('ac-install')}
-                  className="mt-5 px-5 py-2.5 rounded-full bg-white text-blue-850 text-xs font-bold uppercase inline-flex items-center gap-2 hover:bg-blue-50"
+                  className="premium-button mt-5 px-5 py-2.5 rounded-full bg-white text-blue-850 text-xs font-bold uppercase inline-flex items-center gap-2 hover:bg-blue-50"
                 >
                   Get Quote <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -148,8 +151,8 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       <section className="py-16 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-[2rem] overflow-hidden bg-white border border-slate-100 shadow-lg aspect-4/3">
+            <div className="lg:col-span-5 relative" data-reveal>
+              <div className="premium-card rounded-[2rem] overflow-hidden bg-white border border-slate-100 shadow-lg aspect-4/3">
                 <img
                   src={ASSET_PATHS.aboutDuctwork}
                   alt="Precision ductwork fabrication"
@@ -171,7 +174,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
               </div>
             </div>
 
-            <div className="lg:col-span-7 text-left lg:pl-8 pt-6 lg:pt-0">
+            <div className="lg:col-span-7 text-left lg:pl-8 pt-6 lg:pt-0" data-reveal style={{ '--reveal-delay': '140ms' } as CSSProperties}>
               <span className="text-[10px] font-mono font-bold tracking-widest text-blue-600 uppercase">
                 Why Our Service Works
               </span>
@@ -188,7 +191,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                   { value: '2500+', label: 'Tons Sized' },
                   { value: '99%', label: 'SLA Response' },
                 ].map((stat) => (
-                  <div key={stat.label} className="bg-white rounded-2xl border border-slate-100 p-4 text-center shadow-sm">
+                  <div key={stat.label} className="premium-card bg-white rounded-2xl border border-slate-100 p-4 text-center shadow-sm">
                     <p className="text-xl sm:text-2xl font-black text-blue-650">{stat.value}</p>
                     <p className="text-[10px] text-slate-500 leading-tight mt-1">{stat.label}</p>
                   </div>
@@ -215,7 +218,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
 
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8" data-reveal>
             <div className="text-left">
               <span className="text-[10px] font-mono font-bold tracking-widest text-blue-600 uppercase">
                 Our Service Packages
@@ -226,7 +229,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
             </div>
             <button
               onClick={() => onOpenQuote()}
-              className="px-5 py-2.5 rounded-full bg-blue-650 hover:bg-blue-700 text-white text-xs font-bold uppercase inline-flex items-center gap-2 w-fit"
+              className="premium-button px-5 py-2.5 rounded-full bg-blue-650 hover:bg-blue-700 text-white text-xs font-bold uppercase inline-flex items-center gap-2 w-fit"
             >
               View Estimate <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -236,7 +239,9 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
             {servicePackages.map((service, index) => (
               <article
                 key={service.id}
-                className="rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                className="premium-card rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-reveal
+                style={{ '--reveal-delay': `${index * 60}ms` } as CSSProperties}
               >
                 <div className="h-40 bg-slate-900 relative overflow-hidden">
                   <img
@@ -270,7 +275,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                   </p>
                   <button
                     onClick={() => onOpenQuote(service.id)}
-                    className="mt-4 w-full py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 hover:bg-blue-650 hover:text-white hover:border-blue-650 text-xs font-bold uppercase transition-colors"
+                    className="premium-button mt-4 w-full py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 hover:bg-blue-650 hover:text-white hover:border-blue-650 text-xs font-bold uppercase transition-colors"
                   >
                     Request Service
                   </button>

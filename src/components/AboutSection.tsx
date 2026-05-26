@@ -4,6 +4,7 @@
  */
 
 import { Calendar, Briefcase, Users, CheckCircle2 } from 'lucide-react';
+import type { CSSProperties } from 'react';
 import { ASSET_PATHS, STATS } from '../data';
 
 export default function AboutSection() {
@@ -30,7 +31,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column (Brand Narrative Copy) */}
-          <div className="lg:col-span-5 space-y-5 sm:space-y-6 text-left" id="about-brief-box">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6 text-left" id="about-brief-box" data-reveal>
             <span className="text-[10px] font-mono font-bold tracking-widest text-[#0066cc] uppercase block">
               ABOUT GULF BREEZE
             </span>
@@ -64,7 +65,7 @@ export default function AboutSection() {
             <div className="relative w-full max-w-sm space-y-4">
               
               {/* Top Layered Image (Technicians) */}
-              <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300">
+              <div className="premium-card relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300" data-reveal>
                 <img 
                   src={ASSET_PATHS.aboutTechnicians} 
                   alt="Certified HVAC Diagnostician" 
@@ -78,7 +79,7 @@ export default function AboutSection() {
               </div>
 
               {/* Bottom Layered Image (Ductwork Factory) */}
-              <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300">
+              <div className="premium-card relative rounded-2xl overflow-hidden border-4 border-white shadow-lg aspect-4/3 bg-slate-800 transform hover:-translate-y-1 transition duration-300" data-reveal style={{ '--reveal-delay': '120ms' } as CSSProperties}>
                 <img 
                   src={ASSET_PATHS.aboutDuctwork} 
                   alt="Duct Fabrication workshop" 
@@ -99,7 +100,9 @@ export default function AboutSection() {
             {STATS.map((stat, idx) => (
               <div 
                 key={idx}
-                className="bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-blue-200 hover:bg-slate-50/50 transition-all text-left group"
+                className="premium-card bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-blue-200 hover:bg-slate-50/50 transition-all text-left group"
+                data-reveal
+                style={{ '--reveal-delay': `${idx * 80}ms` } as CSSProperties}
               >
                 <div className="flex items-center gap-3.5">
                   <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">

@@ -49,7 +49,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           
           {/* Logo Brand */}
           <a href="#/" className="flex items-center gap-2 sm:gap-3 group animate-fadeIn min-w-0" id="navbar-logo-brand">
-            <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-slate-200 overflow-hidden shadow-sm shrink-0">
+            <div className="premium-logo relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-slate-200 overflow-hidden shadow-sm shrink-0">
               <img
                 src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
                 alt="Gulf Souq Metals logo"
@@ -84,7 +84,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           <div className="hidden lg:block">
             <button 
               onClick={onOpenQuote}
-              className="px-5 py-2.5 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs tracking-wide rounded-lg uppercase flex items-center gap-2 transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
+              className="premium-button px-5 py-2.5 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs tracking-wide rounded-lg uppercase flex items-center gap-2 transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
               id="nav-get-quote-btn"
             >
               Get a Quote <ArrowRight className="w-3.5 h-3.5" />
@@ -115,7 +115,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       >
         <div className="flex items-center justify-between border-b border-slate-100 pb-5">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-white border border-slate-200 overflow-hidden flex items-center justify-center">
+            <div className="premium-logo w-10 h-10 rounded-full bg-white border border-slate-200 overflow-hidden flex items-center justify-center">
               <img
                 src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
                 alt="Gulf Souq Metals logo"
@@ -152,7 +152,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               setIsOpen(false);
               onOpenQuote();
             }}
-            className="w-full py-3 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 "
+            className="premium-button w-full py-3 bg-blue-650 hover:bg-blue-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 "
           >
             Get a Quote <ArrowRight className="w-4 h-4" />
           </button>
