@@ -1,0 +1,6 @@
+{
+  "name": "Gulf Breeze AC & Ducting",
+  "description": "Premium landing page for Gulf Breeze AC & Ducting, cooling solutions you can trust across the Gulf. Complete with interactive service selectors, project showcasing, and design assets download utility.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
