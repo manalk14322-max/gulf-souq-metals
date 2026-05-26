@@ -74,7 +74,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="projects" className="metal-grid py-16 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
@@ -147,7 +147,7 @@ export default function ProjectsSection() {
                     </p>
                   </div>
 
-                  <div className="p-2.5 rounded-full bg-white/10 text-white border border-white/20 group-hover:bg-white group-hover:text-[#0066cc] group-hover:scale-110 transition-all shrink-0">
+                  <div className="premium-icon p-2.5 rounded-full bg-white/10 text-white border border-white/20 group-hover:bg-white group-hover:text-[#0066cc] group-hover:scale-110 transition-all shrink-0">
                     <Eye className="w-3.5 h-3.5" />
                   </div>
                 </div>

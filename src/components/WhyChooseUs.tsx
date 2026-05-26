@@ -22,7 +22,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
   ];
 
   return (
-    <section id="why-us" className="py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
+    <section id="why-us" className="metal-grid py-16 sm:py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
           
@@ -42,7 +42,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {features.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-2.5" id={`feature-item-${idx}`}>
-                  <div className="p-1 rounded-full bg-blue-50 text-blue-650 mt-0.5 shrink-0 border border-blue-100">
+                  <div className="premium-icon p-1 rounded-full bg-blue-50 text-blue-650 mt-0.5 shrink-0 border border-blue-100">
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <span className="text-xs font-semibold text-slate-800 leading-tight">
@@ -97,7 +97,7 @@ export default function WhyChooseUs({ onOpenQuote }: WhyChooseUsProps) {
 
               {/* Smaller overlapping bottom-right badge frame */}
               <div className="premium-card col-span-10 col-start-2 bg-white rounded-xl shadow-lg border border-slate-100 p-4 flex gap-4 text-left">
-                <div className="p-3 bg-blue-50 text-blue-650 rounded-xl shrink-0 h-fit">
+                <div className="premium-icon p-3 bg-blue-50 text-blue-650 rounded-xl shrink-0 h-fit">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div className="font-sans">

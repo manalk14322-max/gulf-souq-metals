@@ -39,7 +39,7 @@ function PageHeader({
   description: string;
 }) {
   return (
-    <section className="pt-28 pb-10 sm:pt-36 sm:pb-16 bg-slate-950 text-white relative overflow-hidden">
+    <section className="metal-grid pt-28 pb-10 sm:pt-36 sm:pb-16 bg-slate-950 text-white relative overflow-hidden">
       <img
         src={ASSET_PATHS.contactPipesBg}
         alt=""
@@ -173,6 +173,16 @@ export default function App() {
     return () => observer.disconnect();
   }, [currentPage]);
 
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      document.documentElement.style.setProperty('--cursor-x', `${event.clientX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${event.clientY}px`);
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    return () => window.removeEventListener('pointermove', handlePointerMove);
+  }, []);
+
   const handleOpenQuote = (serviceType?: string) => {
     if (serviceType) {
       setSelectedService(serviceType);
@@ -247,6 +257,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-blue-600/10 selection:text-blue-900" id="gulf-breeze-app-root">
+      <div className="cursor-glow" aria-hidden="true" />
       <Navbar onOpenQuote={() => handleOpenQuote()} />
 
       <main className="flex-1">

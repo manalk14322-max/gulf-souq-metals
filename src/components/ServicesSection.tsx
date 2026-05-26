@@ -32,7 +32,7 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
   };
 
   return (
-    <section id="services" className="py-20 sm:py-28 bg-[#001b44] text-white relative overflow-hidden">
+    <section id="services" className="metal-grid py-20 sm:py-28 bg-[#001b44] text-white relative overflow-hidden">
       
       {/* Abstract mesh subtle glow vectors */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -64,7 +64,7 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
               style={{ '--reveal-delay': `${idx * 60}ms` } as CSSProperties}
             >
               <div>
-                <div className="p-3 bg-blue-900/60 text-blue-400 rounded-xl w-fit group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <div className="premium-icon p-3 bg-blue-900/60 text-blue-400 rounded-xl w-fit group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   {getIcon(serv.iconName)}
                 </div>
                 <h3 className="text-base font-black tracking-tight mt-5 group-hover:text-blue-300 transition-colors">
@@ -96,7 +96,7 @@ export default function ServicesSection({ onOpenQuote }: ServicesSectionProps) {
               </button>
 
               <div className="flex items-center gap-3.5 border-b border-slate-800 pb-5">
-                <div className="p-3 bg-blue-600 text-white rounded-xl">
+                <div className="premium-icon p-3 bg-blue-600 text-white rounded-xl">
                   {getIcon(selectedService.iconName, "w-7 h-7")}
                 </div>
                 <div className="text-left">

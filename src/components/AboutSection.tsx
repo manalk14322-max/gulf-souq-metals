@@ -20,7 +20,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="about" className="metal-grid py-16 sm:py-24 bg-white relative overflow-hidden">
       
       {/* Background visual details (dotted grids) to mimic original design */}
       <div className="absolute top-10 left-10 w-24 h-24 text-slate-200 pointer-events-none opacity-50 font-mono text-[9px] select-none leading-none">
@@ -105,7 +105,7 @@ export default function AboutSection() {
                 style={{ '--reveal-delay': `${idx * 80}ms` } as CSSProperties}
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                  <div className="premium-icon p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                     {getIcon(stat.iconName)}
                   </div>
                   <div>

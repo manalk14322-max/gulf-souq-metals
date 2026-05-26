@@ -53,7 +53,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
 
   return (
     <div className="bg-slate-50">
-      <section className="py-10 sm:py-16 bg-white">
+      <section className="metal-grid py-10 sm:py-16 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8" data-reveal>
             <span className="text-[10px] font-mono font-bold tracking-widest text-blue-600 uppercase">
@@ -74,7 +74,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                 style={{ '--reveal-delay': `${idx * 60}ms` } as CSSProperties}
               >
                 <div className="premium-card mx-auto w-20 h-20 min-[380px]:w-24 min-[380px]:h-24 sm:w-28 sm:h-28 rounded-full bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden group-hover:border-blue-300 group-hover:shadow-lg transition-all">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-50 text-blue-650 flex items-center justify-center group-hover:bg-blue-650 group-hover:text-white transition-colors">
+                  <div className="premium-icon w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-50 text-blue-650 flex items-center justify-center group-hover:bg-blue-650 group-hover:text-white transition-colors">
                     {getIcon(service.iconName, 'w-7 h-7')}
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-slate-50">
+      <section className="metal-grid py-16 sm:py-20 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 relative" data-reveal>
@@ -161,7 +161,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
               </div>
               <div className="relative mt-4 sm:absolute sm:-bottom-6 sm:right-8 bg-white rounded-2xl border border-slate-100 shadow-xl p-4 sm:max-w-[220px]">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-blue-650 text-white flex items-center justify-center">
+                  <div className="premium-icon w-12 h-12 rounded-full bg-blue-650 text-white flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div className="text-left">
@@ -216,7 +216,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="metal-grid py-16 sm:py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8" data-reveal>
             <div className="text-left">
@@ -256,7 +256,7 @@ export default function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                     className="w-full h-full object-cover opacity-80"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
-                  <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white text-blue-650 flex items-center justify-center shadow-sm">
+                  <div className="premium-icon absolute top-3 left-3 w-10 h-10 rounded-full bg-white text-blue-650 flex items-center justify-center shadow-sm">
                     {getIcon(service.iconName, 'w-5 h-5')}
                   </div>
                 </div>

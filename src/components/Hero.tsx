@@ -35,7 +35,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
   ];
 
   return (
-    <section id="home" className="relative pt-22 sm:pt-24 lg:pt-28 bg-slate-50 overflow-hidden">
+    <section id="home" className="metal-grid relative pt-22 sm:pt-24 lg:pt-28 bg-slate-50 overflow-hidden">
       <div className="hero-ambient absolute -top-28 -right-20 w-72 h-72 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
       <div className="hero-ambient absolute top-48 -left-24 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" style={{ animationDelay: '1.4s' }} />
       
@@ -116,7 +116,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
                 key={idx} 
                 className="flex items-start gap-3 sm:gap-4 p-2 md:px-4"
               >
-                <div className="p-2.5 rounded-xl bg-blue-50/60 shrink-0">
+                <div className="premium-icon p-2.5 rounded-xl bg-blue-50/60 shrink-0">
                   {badge.icon}
                 </div>
                 <div className="text-left font-sans">
