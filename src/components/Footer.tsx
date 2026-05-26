@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, Fan } from 'lucide-react';
 
 export default function Footer() {
   const quickLinks = [
@@ -34,15 +34,11 @@ export default function Footer() {
           {/* Column 1: Brand & Socials (Col size: 3) */}
           <div className="lg:col-span-3 space-y-6">
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-11 h-11 rounded-full bg-white border border-slate-800 overflow-hidden flex items-center justify-center">
-                <img
-                  src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
-                  alt="Gulf Souq Metals logo"
-                  className="w-full h-full object-cover"
-                />
+              <div className="premium-logo w-11 h-11 rounded-full bg-blue-900 border border-blue-800 overflow-hidden flex items-center justify-center">
+                <Fan className="w-5 h-5 text-blue-300" />
               </div>
               <span className="text-md font-black text-white uppercase tracking-tight leading-tight">
-                Gulf Souq Metals
+                Gulf Breeze AC & Ducting
               </span>
             </div>
             <p className="text-slate-500 text-xs leading-relaxed">

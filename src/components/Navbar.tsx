@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Fan } from 'lucide-react';
 
 interface NavbarProps {
   onOpenQuote: () => void;
@@ -56,19 +56,15 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           
           {/* Logo Brand */}
           <a href="#/" className="flex items-center gap-2 sm:gap-3 group animate-fadeIn min-w-0" id="navbar-logo-brand">
-            <div className="premium-logo relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-slate-200 overflow-hidden shadow-sm shrink-0">
-              <img
-                src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
-                alt="Gulf Souq Metals logo"
-                className="w-full h-full object-cover"
-              />
+            <div className="premium-logo relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-900 border border-blue-850 overflow-hidden shadow-sm shrink-0">
+              <Fan className="w-5 h-5 sm:w-6 sm:h-6 text-blue-300 animate-spin" style={{ animationDuration: '6s' }} />
             </div>
             <div className="min-w-0">
               <span className="block text-base sm:text-lg font-black tracking-tight text-slate-900 font-sans leading-none uppercase truncate">
-                Gulf Souq
+                Gulf Breeze
               </span>
               <span className="block text-[9px] font-bold tracking-widest text-[#0066cc] font-mono leading-none mt-1">
-                METALS
+                AC & DUCTING
               </span>
             </div>
           </a>
@@ -130,14 +126,10 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       >
         <div className="flex items-center justify-between border-b border-slate-100 pb-4">
           <div className="flex items-center gap-2">
-            <div className="premium-logo w-10 h-10 rounded-full bg-white border border-slate-200 overflow-hidden flex items-center justify-center">
-              <img
-                src={`${import.meta.env.BASE_URL}gulf-souq-metals-logo.jpeg`}
-                alt="Gulf Souq Metals logo"
-                className="w-full h-full object-cover"
-              />
+            <div className="premium-logo w-10 h-10 rounded-full bg-blue-900 border border-blue-850 overflow-hidden flex items-center justify-center">
+              <Fan className="w-5 h-5 text-blue-300" />
             </div>
-            <span className="text-sm font-black text-slate-900 uppercase">Gulf Souq</span>
+            <span className="text-sm font-black text-slate-900 uppercase">Gulf Breeze</span>
           </div>
           <button 
             onClick={() => setIsOpen(false)}
